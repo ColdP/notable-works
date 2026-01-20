@@ -23,7 +23,7 @@
 
         html, body {
             height: 100%;
-            overflow: hidden;
+            overflow-x: hidden; /* 防止横向滚动 */
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--gray-900);
             background-color: var(--white);
@@ -32,13 +32,16 @@
 
         .scroll-container {
             height: 100vh;
+            width: 100vw;
             overflow-y: scroll;
+            overflow-x: hidden; /* 防止横向滚动 */
             scroll-snap-type: y mandatory;
             scroll-behavior: smooth;
         }
 
         .section {
             width: 100vw;
+            min-width: 100vw; /* 确保最小宽度为视窗宽度 */
             height: 100vh;
             scroll-snap-align: start;
             display: flex;
@@ -54,12 +57,15 @@
         .hero {
             background-color: var(--white);
             padding: 4rem 2rem;
+            max-width: 100vw; /* 确保不超过视窗宽度 */
         }
 
         .hero-content {
             text-align: center;
             max-width: 800px;
+            width: 100%;
             z-index: 2;
+            padding: 0 1rem;
         }
 
         .hero-avatar {
@@ -85,6 +91,7 @@
             margin-bottom: 1.5rem;
             line-height: 1.1;
             color: var(--gray-950);
+            word-wrap: break-word;
         }
 
         .hero-subtitle {
@@ -100,10 +107,12 @@
         /* Image Sections */
         .image-section {
             background-color: var(--gray-50);
+            max-width: 100vw; /* 确保不超过视窗宽度 */
         }
 
         .image-container {
             width: 100%;
+            max-width: 100vw; /* 确保不超过视窗宽度 */
             height: 100%;
             display: flex;
             flex-direction: column;
